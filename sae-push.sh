@@ -5,11 +5,21 @@ sae_version=$(echo $2|bc 2>/dev/null)
 log() {
 	echo "[push.sh]: $1"
 }
+print_usage() {
+	echo "[usage]: sae-push.sh [repo_name] [SAE-version(1-10)]"
+	echo "[example]: sae-push.sh sjtubus 2"
+}
 
-
-if [ $sae_version -lt 1 -o $sae_version -gt 10 -o $svn_repo_name == "" ]; then
-	echo "[usage]: push.sh $repo_name $SAE-version(1-10)"
-	echo "[example]: push.sh 2"
+if [ ! $sae_version ]; then
+	print_usage
+	exit
+fi
+if [ ! $svn_repo_name ]; then
+	print_usage
+	exit
+fi
+if [ $sae_version -lt 1 -o $sae_version -gt 10 ] ; then
+	print_usage
 	exit
 fi
 
