@@ -26,7 +26,9 @@ Terminal$ source ~/.bash_profile
 如果svn服务器是: `https://svn.sinaapp.com/sjtubus/`，那么下面的第一个参数请填写: `sjtubus`
 如果通过上面那种方式安装好后，你可以进入你自己项目的根目录，接着这样使用：
 ```
-#部署，第一个参数是SAE上的项目名，数字表示版本号，SAE支持1-10
+#部署
+#第一个参数是SAE上的项目名
+#第二个数字表示版本号，SAE支持1-10
 Terminal$ sae-push.sh sjtubus 1
 
 #清空本地svn缓存
