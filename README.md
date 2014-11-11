@@ -1,9 +1,7 @@
 git-for-SAE
 ===========
 
-I JUST want to push a git repository to Sina App Engine.
-
-是的，本工具的作用仅限于把git管理的项目内容自动部署到SAE的svn服务器上，仅此而已。
+本工具的作用只是把git管理的项目内容自动部署到SAE的svn服务器上，仅此而已。
 
 #Features
 - 一个脚本搞定将git项目部署到SAE的svn服务器上
@@ -11,10 +9,10 @@ I JUST want to push a git repository to Sina App Engine.
 
 #How to use
 ```
-#部署
-push.sh 1  #数字表示版本号，SAE支持1-10
+#部署，数字表示版本号，SAE支持1-10
+Me$ push.sh 1
 #清空本地svn缓存
-clean.sh
+Me$ clean.sh
 ```
 
 #Config
