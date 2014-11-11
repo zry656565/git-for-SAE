@@ -1,11 +1,12 @@
 #!/bin/bash
 
-dir_name="SJTU-Bus"
-svn_repo_url="https://svn.sinaapp.com/sjtubus"
-svn_repo_name="sjtubus"
-svn_dir_name="sjtubus/$2"
-sae_version=$2
-init=$1
+#include config
+source "../git-for-SAE/config"
+
+sae_version=$1
+svn_repo_url="https://svn.sinaapp.com/$svn_repo_name"
+svn_dir_name="$svn_repo_name/$1"
+init=$2
 
 if [ $init == false ]
 then
