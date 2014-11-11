@@ -8,13 +8,16 @@ git-for-SAE
 - 自动将缓存文件夹`.svn`加入`.gitignore`
 
 #Setup
-第一步，将以下内容添加到`~/.bash_profile`下
+第一步，将本项目clone到本地并checkout到release分支，这么做的话你在想要更新到最新版本时可以随时获得更新。或者你直接下载[zip](https://github.com/zry656565/git-for-SAE/archive/release.zip)包。假设你将项目放到了如`/Users/Jerry/Dev/git-for-SAE/`这样的路径下。
+
+第二步，将以下内容添加到`~/.bash_profile`下
 ```
 # Git for SAE
 export GIT_FOR_SAE_ROOT=/Users/Jerry/Dev/git-for-SAE/
 export PATH=$GIT_FOR_SAE_ROOT:$PATH
 ```
-第二步，应用新的`.bash_profile`
+
+第三步，应用新的`.bash_profile`
 ```
 Terminal$ source ~/.bash_profile
 ```
@@ -24,6 +27,7 @@ Terminal$ source ~/.bash_profile
 ```
 #部署，数字表示版本号，SAE支持1-10
 Terminal$ sae-push.sh 1
+
 #清空本地svn缓存
 Terminal$ sae-clean.sh
 ```
