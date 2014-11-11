@@ -10,9 +10,9 @@ git-for-SAE
 #How to use
 ```
 #部署，数字表示版本号，SAE支持1-10
-Me$ push.sh 1
+Terminal$ push.sh 1
 #清空本地svn缓存
-Me$ clean.sh
+Terminal$ clean.sh
 ```
 
 #Config
