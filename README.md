@@ -22,8 +22,16 @@ export PATH=$GIT_FOR_SAE_ROOT:$PATH
 Terminal$ source ~/.bash_profile
 ```
 
+#Config
+修改config文件配置：
+```
+svn_repo_name=your_repo_name_on_sae
+```
+如果svn服务器是: `https://svn.sinaapp.com/sjtubus/`
+那么上面的参数请填写: `sjtubus`
+
 #How to use
-如果通过上面那种方式安装好后，你可以这样使用
+如果通过上面那种方式安装好后，你可以进入你自己项目的根目录，接着这样使用：
 ```
 #部署，数字表示版本号，SAE支持1-10
 Terminal$ sae-push.sh 1
@@ -31,13 +39,6 @@ Terminal$ sae-push.sh 1
 #清空本地svn缓存
 Terminal$ sae-clean.sh
 ```
-
-#Config
-```
-svn_repo_name=your_repo_name_on_sae
-```
-如果svn服务器是: `https://svn.sinaapp.com/sjtubus/`
-那么上面的参数请填写: `sjtubus`
 
 #Projects
 - 成功案例：将交大校园巴士时刻表部署到SAE上
