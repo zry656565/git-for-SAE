@@ -7,12 +7,25 @@ git-for-SAE
 - 一个脚本搞定将git项目部署到SAE的svn服务器上
 - 自动将缓存文件夹`.svn`加入`.gitignore`
 
+#Setup
+第一步，将以下内容添加到`~/.bash_profile`下
+```
+# Git for SAE
+export GIT_FOR_SAE_ROOT=/Users/Jerry/Dev/git-for-SAE/
+export PATH=$GIT_FOR_SAE_ROOT:$PATH
+```
+第二步，应用新的`.bash_profile`
+```
+Terminal$ source ~/.bash_profile
+```
+
 #How to use
+如果通过上面那种方式安装好后，你可以这样使用
 ```
 #部署，数字表示版本号，SAE支持1-10
-Terminal$ push.sh 1
+Terminal$ sae-push.sh 1
 #清空本地svn缓存
-Terminal$ clean.sh
+Terminal$ sae-clean.sh
 ```
 
 #Config

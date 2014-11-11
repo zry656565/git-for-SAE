@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #include config
-source "../git-for-SAE/config"
+source "config"
 
 arg=$(echo $1|bc 2>/dev/null)
 log() {
@@ -16,6 +16,7 @@ fi
 
 sae_version=$1
 svn_repo_url="https://svn.sinaapp.com/$svn_repo_name"
+log "url> $svn_repo_url"
 svn_dir_name="$svn_repo_name/$1"
 
 #if [.svn] doesn't exist, checkout svn project
