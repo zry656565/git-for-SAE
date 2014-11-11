@@ -40,9 +40,9 @@ svn_repo_name=your_repo_name_on_sae
 那么上面的参数请填写: `sjtubus`
 
 #Projects
-成功案例：将交大校园巴士时刻表部署到SAE上
-Github: https://github.com/zry656565/SJTU-Bus
-SAE: http://sjtubus.sinaapp.com/
+- 成功案例：将交大校园巴士时刻表部署到SAE上
+- Github: https://github.com/zry656565/SJTU-Bus
+- SAE: http://sjtubus.sinaapp.com/
 
 #Issues
 - 暂不支持在svn:ignore中导入.gitignore，即此提交方法暂时无法忽略文件
