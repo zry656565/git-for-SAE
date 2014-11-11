@@ -2,6 +2,15 @@
 
 #include config
 source "../git-for-SAE/config"
+arg=$(echo $1|bc 2>/dev/null)
+
+if [ $arg -lt 1 -o $arg -gt 10 ]; then
+	echo "[usage]: push.sh $num(SAE-version)"
+	echo "[example]: push.sh 1"
+	exit
+fi
+
+exit
 
 sae_version=$1
 svn_repo_url="https://svn.sinaapp.com/$svn_repo_name"
