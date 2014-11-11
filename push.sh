@@ -6,10 +6,10 @@ source "../git-for-SAE/config"
 sae_version=$1
 svn_repo_url="https://svn.sinaapp.com/$svn_repo_name"
 svn_dir_name="$svn_repo_name/$1"
-init=$2
 
-if [ $init == false ]
-then
+#if [.svn] doesn't exist, checkout svn project
+if [ ! -e ".svn" ]; then
+	echo "initializing: checkout svn project..."
 	mkdir .svn
 	cd .svn
 	svn checkout $svn_repo_url
