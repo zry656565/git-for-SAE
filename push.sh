@@ -2,7 +2,11 @@
 
 #include config
 source "../git-for-SAE/config"
+
 arg=$(echo $1|bc 2>/dev/null)
+log() {
+	echo "[push.sh]: $1"
+}
 
 if [ $arg -lt 1 -o $arg -gt 10 ]; then
 	echo "[usage]: push.sh $num(SAE-version)"
@@ -10,22 +14,26 @@ if [ $arg -lt 1 -o $arg -gt 10 ]; then
 	exit
 fi
 
-exit
-
 sae_version=$1
 svn_repo_url="https://svn.sinaapp.com/$svn_repo_name"
 svn_dir_name="$svn_repo_name/$1"
 
 #if [.svn] doesn't exist, checkout svn project
 if [ ! -e ".svn" ]; then
-	echo "initializing: checkout svn project..."
+	log "checkout svn project..."
 	mkdir .svn
 	cd .svn
 	svn checkout $svn_repo_url
 	cd ..
+	log "add .svn to .gitignore"
+	if [ -e ".gitignore" ]; then
+		echo "" >> .gitignore
+	fi
+	echo ".svn" >> .gitignore
+	echo ".svn/*" >> .gitignore
 fi
 
-echo "remove all previous files..."
+log "remove all previous files..."
 cd ".svn/$svn_dir_name"
 mv config.yaml ../config.yaml
 rm -rf *
@@ -34,15 +42,15 @@ svn st | awk '{print $2}' | xargs svn delete
 svn commit -m "clean"
 cd ../../..
 
-echo "copy git repo to SAE-svn..."
+log "copy git repo to SAE-svn..."
 mv -f .svn ../.svn
 cp -rf * "../.svn/$svn_dir_name"
 mv -f ../.svn .svn
-echo "copy Done."
+log "copy Done."
 cd ".svn/$svn_dir_name"
-echo "svn add all..."
+log "svn add all..."
 #add all files
 svn st | awk '{if ( $1 == "?") { print $2 }}' | xargs svn add
-echo "svn commit..."
+log "svn commit..."
 svn commit -m "modify"
-echo "If there is no error below, the pushing job has been done."
+log "If there is no error below, the pushing job has been done."
