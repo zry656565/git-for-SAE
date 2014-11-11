@@ -1,23 +1,21 @@
 #!/bin/bash
 
-#include config
-source "config"
-
-arg=$(echo $1|bc 2>/dev/null)
+svn_repo_name=$1
+sae_version=$(echo $2|bc 2>/dev/null)
 log() {
 	echo "[push.sh]: $1"
 }
 
-if [ $arg -lt 1 -o $arg -gt 10 ]; then
-	echo "[usage]: push.sh $num(SAE-version)"
-	echo "[example]: push.sh 1"
+
+if [ $sae_version -lt 1 -o $sae_version -gt 10 -o $svn_repo_name == "" ]; then
+	echo "[usage]: push.sh $repo_name $SAE-version(1-10)"
+	echo "[example]: push.sh 2"
 	exit
 fi
 
-sae_version=$1
 svn_repo_url="https://svn.sinaapp.com/$svn_repo_name"
 log "url> $svn_repo_url"
-svn_dir_name="$svn_repo_name/$1"
+svn_dir_name="$svn_repo_name/$sae_version"
 
 #if [.svn] doesn't exist, checkout svn project
 if [ ! -e ".svn" ]; then
