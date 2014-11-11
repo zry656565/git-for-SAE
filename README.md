@@ -1,7 +1,7 @@
 git-for-SAE
 ===========
 
-本工具的作用只是把git管理的项目内容自动部署到SAE的svn服务器上，仅此而已。
+本工具的作用只是把git管理的项目内容自动部署到SAE的svn服务器上，仅此而已。只是单纯不太喜欢搞svn。
 
 #Features
 - 一个脚本搞定将git项目部署到SAE的svn服务器上
@@ -13,7 +13,7 @@ git-for-SAE
 第二步，将以下内容添加到`~/.bash_profile`下
 ```
 # Git for SAE
-export GIT_FOR_SAE_ROOT=/Users/Jerry/Dev/git-for-SAE/
+export GIT_FOR_SAE_ROOT=/Users/Jerry/Dev/git-for-SAE/ #此处就是你刚刚放置clone下来的项目路径
 export PATH=$GIT_FOR_SAE_ROOT:$PATH
 ```
 
@@ -43,6 +43,9 @@ svn_repo_name=your_repo_name_on_sae
 - 成功案例：将交大校园巴士时刻表部署到SAE上
 - Github: https://github.com/zry656565/SJTU-Bus
 - SAE: http://sjtubus.sinaapp.com/
+
+#Feedback
+- 有任何问题可以在issue版提，或者直接给我发邮件：zry656565@gmail.com
 
 #Issues
 - 暂不支持在svn:ignore中导入.gitignore，即此提交方法暂时无法忽略文件
