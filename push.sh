@@ -51,6 +51,8 @@ cd ".svn/$svn_dir_name"
 log "svn add all..."
 #add all files
 svn st | awk '{if ( $1 == "?") { print $2 }}' | xargs svn add
+#log "apply gitignore..."
+#cat ../../../.gitignore | awk '{if ($1 != ".svn" && $1 != ".svn/*")print $1}' | xargs svn propset svn:ignore .
 log "svn commit..."
 svn commit -m "modify"
 log "If there is no error below, the pushing job has been done."
