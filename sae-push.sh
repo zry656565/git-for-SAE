@@ -39,7 +39,6 @@ if [ ! -e ".svn" ]; then
 		echo "" >> .gitignore
 	fi
 	echo ".svn" >> .gitignore
-	echo ".svn/*" >> .gitignore
 fi
 
 log "remove all previous files..."
@@ -57,11 +56,11 @@ cp -rf * "../.svn/$svn_dir_name"
 mv -f ../.svn .svn
 log "copy Done."
 cd ".svn/$svn_dir_name"
-log "svn add all..."
-#add all files
-svn st | awk '{if ( $1 == "?") { print $2 }}' | xargs svn add
 #log "apply gitignore..."
-#cat ../../../.gitignore | awk '{if ($1 != ".svn" && $1 != ".svn/*")print $1}' | xargs svn propset svn:ignore .
+#svn propset svn:ignore `cat ../../../.gitignore | awk '{if ($1 != ".svn" && $1 != ".svn/*") print $1}'` .
+#add all files
+log "svn add all..."
+svn st | awk '{if ( $1 == "?") { print $2 }}' | xargs svn add
 log "svn commit..."
 svn commit -m "modify"
 log "If there is no error below, the pushing job has been done."
