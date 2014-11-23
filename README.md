@@ -35,6 +35,10 @@ Terminal$ sae-push.sh sjtubus 1
 Terminal$ sae-clean.sh
 ```
 
+#Attention
+- 虽然理论上本脚本也可以使用于未在git版本管理下的项目，但最好不要那么干，防治丢失重要信息。
+- 本脚本比较适用于规模不大的项目。
+
 #Projects
 - 成功案例：将交大校园巴士时刻表部署到SAE上
 - Github: https://github.com/zry656565/SJTU-Bus
