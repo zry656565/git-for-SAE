@@ -46,7 +46,12 @@ cd ".svn/$svn_repo_name"
 svn update
 
 log "remove all previous files..."
-cd ".svn/$svn_dir_name"
+if [ ! -e "$sae_version" ]; then
+	log "Oh! It seems that you haven't create version $sae_version on SAE!"
+	log "Abort!"
+	exit 1
+fi
+cd "$sae_version"
 mv config.yaml ../config.yaml
 rm -rf *
 mv ../config.yaml config.yaml
