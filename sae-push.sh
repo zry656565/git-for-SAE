@@ -41,6 +41,10 @@ if [ ! -e ".svn" ]; then
 	echo ".svn" >> .gitignore
 fi
 
+log "check local repo whether it is the latest..."
+cd ".svn/$svn_repo_name"
+svn update
+
 log "remove all previous files..."
 cd ".svn/$svn_dir_name"
 mv config.yaml ../config.yaml
